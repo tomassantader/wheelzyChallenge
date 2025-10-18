@@ -1,0 +1,6 @@
+@wheelzyChallenge.Api_HostAddress = http://localhost:5023
+
+GET {{wheelzyChallenge.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
