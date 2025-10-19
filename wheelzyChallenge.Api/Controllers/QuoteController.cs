@@ -19,11 +19,11 @@ namespace wheelzyChallenge.Api.Controllers
             _quoteService = quoteService;
         }
 
-        [HttpGet(Name = "GetQuotes")]
-        public List<Quote> Get(int zipCode)
+        [HttpGet("GetQuotes")]
+        public List<QuoteInfoDto> Get(int zipCode)
         {
 
-            List<Quote> result = _quoteService.GetCurrentQuoteByZipCode(zipCode);
+            List<QuoteInfoDto> result = _quoteService.GetCurrentQuoteByZipCode(zipCode);
             return result;
         }
     }

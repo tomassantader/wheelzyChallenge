@@ -10,5 +10,6 @@ namespace wheelzyChallenge.Infrastructure.Repositories
 {
     public interface IOrderRepository : IRepository<Order>
     {
+        public Task<List<Order>> GetOrdersAsync(DateTime? dateFrom,DateTime? dateTo, List<int> customerIds,List<int> statusIds, bool? isActive);
     }
 }

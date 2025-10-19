@@ -12,5 +12,7 @@ namespace wheelzyChallenge.Application.DTOs
         public string? Model { get; set; }
         public string? SubModel { get; set; }
         public DateTime? Year { get; set; }
+        public List<OrderHistoryDto>? OrderHistory { get; set; } = new List<OrderHistoryDto>();
+
     }
 }

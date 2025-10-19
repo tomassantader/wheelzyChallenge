@@ -17,37 +17,48 @@ namespace wheelzyChallenge.Infrastructure.Repositories
 
         public List<Quote> GetCurrentQuoteByZipCode(int zipCode)
         {
-
-            var result = DbContext.Set<Quote>()
-                .Where(x => x.IsCurrent)
-                .Select(x => new Quote
-                {
-                    Id = x.Id,
-                    ZipCodeId = x.ZipCodeId,
-                    Buyer = new Buyer
+            try
+            {
+                var quotes = DbContext.Set<Quote>()
+                    .Where(x => x.IsCurrent && x.ZipCodeId == zipCode)
+                    .Select(x => new Quote
                     {
-                        FullName = x.Buyer.FullName
-                    },
-                    Amount = x.Amount,
-                    Orders = x.Orders.Select(o => new Order
-                    {
-                        Status = o.Status,
-                        OrderDetails = o.OrderDetails.Select(od => new OrderDetail
+                        Id = x.Id,
+                        ZipCodeId = x.ZipCodeId,
+                        Buyer = new Buyer
                         {
-                            Car = new Car
+                            FullName = x.Buyer.FullName
+                        },
+                        Amount = x.Amount,
+                        Orders = x.Orders.Select(o => new Order
+                        {
+                            Status = o.Status,
+                            OrderDetails = o.OrderDetails.Select(od => new OrderDetail
                             {
-                                Make = od.Car.Make,
-                                Model = od.Car.Model,
-                                Submodel = od.Car.Submodel,
-                                Year = od.Car.Year,
-                            },
-                            PickedUpDate = od.PickedUpDate,
-                            OrderHistories = od.OrderHistories.OrderByDescending(oh => oh.UpdateDate).Take(1).ToList()
+                                Car = new Car
+                                {
+                                    Make = od.Car.Make,
+                                    Model = od.Car.Model,
+                                    Submodel = od.Car.Submodel,
+                                    Year = od.Car.Year,
+                                },
+                                PickedUpDate = od.PickedUpDate,
+                                OrderHistories = od.OrderHistories
+                                    .OrderByDescending(oh => oh.UpdateDate)
+                                    .Take(1)
+                                    .ToList()
+                            }).ToList()
                         }).ToList()
-                    }).ToList()
-                }).ToList();
+                    })
+                    .ToList();
 
-            return result;
+                return quotes;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error al obtener cotizaciones del código postal {zipCode}: {ex.Message}");
+                return new List<Quote>();
+            }
         }
     }
 

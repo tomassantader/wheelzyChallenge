@@ -14,6 +14,7 @@ namespace wheelzyChallenge.Infrastructure.DependeciesInjection
         public static IServiceCollection AddInfrastructure(IServiceCollection iServiceCollection, IConfiguration configuration)
         {
             iServiceCollection.AddScoped<IQuoteRepository, QuoteRepository>();
+            iServiceCollection.AddScoped<IOrderRepository, OrderRepository>();
             return iServiceCollection;
         }
     }

@@ -28,10 +28,8 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
                    .HasColumnName("ID_ORDER_DETAIL")
                    .IsRequired();
 
-            builder.Property(x => x.Status)
-                   .HasColumnName("STATUS")
-                   .HasMaxLength(255)
-                   .IsRequired();
+            builder.Property(x => x.StatusId)
+                   .HasColumnName("ID_STATUS");
 
             builder.Property(x => x.UpdateDate)
                    .HasColumnName("UPDATE_DATE");
@@ -40,6 +38,11 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
                    .WithMany(od => od.OrderHistories)
                    .HasForeignKey(x => x.OrderDetailId)
                    .HasConstraintName("FK_OrdersHistory_Orders");
+
+            //builder.HasOne(x => x.Status)
+            //        .WithMany(x => x.OrderHistories)
+            //        .HasForeignKey(x => x.StatusId)
+            //        .HasConstraintName("FK_OrdersHistory_States");
         }
     }
 }

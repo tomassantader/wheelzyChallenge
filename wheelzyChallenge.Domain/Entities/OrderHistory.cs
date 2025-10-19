@@ -10,9 +10,10 @@ namespace wheelzyChallenge.Domain.Entities
     public class OrderHistory : Entity
     {
         public int OrderDetailId { get; set; }    
-        public string Status { get; set; } = null!;
+        public int StatusId { get; set; }
         public DateTime? UpdateDate { get; set; }
-
-        public OrderDetail OrderDetail { get; set; } = null!;
+        
+        public OrderDetail? OrderDetail { get; set; } = null!;
+        public Status? Status { get; set; }
     }
 }

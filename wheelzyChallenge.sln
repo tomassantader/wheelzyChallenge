@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wheelzyChallenge.Api", "wheelzyChallenge.Api\wheelzyChallenge.Api.csproj", "{D76C20B4-A0FC-40F8-B9A1-F1A32B176536}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wheelzyChallenge.Domain", "wheelzyChallenge.Domain\wheelzyChallenge.Domain.csproj", "{BE8C48F9-5E9F-4C67-9B90-F57203C00DBE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wheelzyChallenge.Application", "wheelzyChallenge.Application\wheelzyChallenge.Application.csproj", "{F4376628-4731-4D2B-8523-6AB09E8C4AFB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wheelzyChallenge.Test", "wheelzyChallenge.Test\wheelzyChallenge.Test.csproj", "{C55D97ED-B4A6-4935-944C-8C9B85CB7C00}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{F4376628-4731-4D2B-8523-6AB09E8C4AFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F4376628-4731-4D2B-8523-6AB09E8C4AFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F4376628-4731-4D2B-8523-6AB09E8C4AFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C55D97ED-B4A6-4935-944C-8C9B85CB7C00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C55D97ED-B4A6-4935-944C-8C9B85CB7C00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C55D97ED-B4A6-4935-944C-8C9B85CB7C00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C55D97ED-B4A6-4935-944C-8C9B85CB7C00}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

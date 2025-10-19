@@ -25,10 +25,8 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
             builder.Property(x => x.QuoteId)
                    .HasColumnName("ID_QUOTE");
 
-            builder.Property(x => x.Status)
-                   .HasColumnName("STATUS")
-                   .HasMaxLength(255)
-                   .IsRequired();
+            builder.Property(x => x.StatusId)
+                   .HasColumnName("ID_STATUS");
 
             builder.Property(x => x.CreatedDate)
                    .HasColumnName("CREATED_DATE");
@@ -40,6 +38,11 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
                    .WithMany(q => q.Orders)
                    .HasForeignKey(x => x.QuoteId)
                    .HasConstraintName("FK_Orders_Quotes");
+
+            //builder.HasOne(x => x.Status)
+            //        .WithMany(x => x.Orders)
+            //        .HasForeignKey(x => x.StatusId)
+            //        .HasConstraintName("FK_Orders_States");
 
             builder.HasMany(x => x.OrderDetails)
                     .WithOne(od => od.Order)

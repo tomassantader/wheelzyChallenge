@@ -16,19 +16,31 @@ namespace wheelzyChallenge.Application.Services.QuoteService
         {
             _quoteRepository = quoteRepository;
         }
-        public List<Quote> GetCurrentQuoteByZipCode(int zipCode)
+        public List<QuoteInfoDto> GetCurrentQuoteByZipCode(int zipCode)
         {
-            List<Quote> r = _quoteRepository.GetCurrentQuoteByZipCode(zipCode);
-            List<QuoteInfoDto> quoteInfoDtos = new List<QuoteInfoDto>();
-            //r.ForEach(r => {
-            //    quoteInfoDtos.Add(new QuoteInfoDto
-            //    {
-            //        Status = r.Orders.FirstOrDefault().Status,
-            //        BuyerName = r.Buyer.FullName,
-            //        Cars = new List<CarDto>(r.Orders.FirstOrDefault().OrderDetails.ForEach(od => new CarDto{ Make = od.Car.Make, Model = od.Car.Model, SubModel = od.Car.Submodel, Year = od.Car.Year }))
-            //    });
-            //});
-            return r;
+            try
+            {
+                List<Quote> quotes = _quoteRepository.GetCurrentQuoteByZipCode(zipCode);
+                List<QuoteInfoDto> quoteInfoDtos = new List<QuoteInfoDto>();
+                quotes.ForEach(quote =>
+                {
+                    quoteInfoDtos.Add(new QuoteInfoDto
+                    {
+                        Status = quote.Orders.FirstOrDefault().Status.Description,
+                        BuyerName = quote.Buyer.FullName,
+                        Amount = quote.Amount,
+                        StatusDate = quote.Orders.FirstOrDefault().OrderDetails.SingleOrDefault().OrderHistories.FirstOrDefault().UpdateDate,
+                        Cars = quote.Orders.FirstOrDefault()?.OrderDetails.Select(od => new CarDto { Make = od.Car.Make, Model = od.Car.Model, SubModel = od.Car.Submodel, Year = od.Car.Year }).ToList(),
+
+                    });
+                });
+                return quoteInfoDtos;
+
+            }
+            catch(Exception ex)
+            {
+                return new List<QuoteInfoDto>();
+            }
         }
     }
 }

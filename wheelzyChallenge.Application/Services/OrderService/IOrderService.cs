@@ -8,8 +8,8 @@ using wheelzyChallenge.Domain.Entities;
 
 namespace wheelzyChallenge.Application.Services.QuoteService
 {
-    public interface IQuoteService
+    public interface IOrderService
     {
-        List<QuoteInfoDto> GetCurrentQuoteByZipCode(int zipCode);
+        Task<List<OrderDto>> GetOrdersAsync(DateTime? dateFrom, DateTime? dateTo, List<int> customerIds, List<int> statusIds, bool? isActive);
     }
 }
