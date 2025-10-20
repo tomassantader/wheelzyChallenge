@@ -38,11 +38,6 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
                    .WithMany(od => od.OrderHistories)
                    .HasForeignKey(x => x.OrderDetailId)
                    .HasConstraintName("FK_OrdersHistory_Orders");
-
-            //builder.HasOne(x => x.Status)
-            //        .WithMany(x => x.OrderHistories)
-            //        .HasForeignKey(x => x.StatusId)
-            //        .HasConstraintName("FK_OrdersHistory_States");
         }
     }
 }

@@ -11,11 +11,9 @@ namespace wheelzyChallenge.Api.Controllers
     public class QuoteController : ControllerBase
     {
         private readonly IQuoteService _quoteService;
-        private readonly ILogger<QuoteController> _logger;
 
-        public QuoteController(ILogger<QuoteController> logger, IQuoteService quoteService)
+        public QuoteController(IQuoteService quoteService)
         {
-            _logger = logger;
             _quoteService = quoteService;
         }
 

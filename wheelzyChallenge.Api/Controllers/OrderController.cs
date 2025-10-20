@@ -11,11 +11,9 @@ namespace wheelzyChallenge.Api.Controllers
     public class OrderController : ControllerBase
     {
         private readonly IOrderService _orderService;
-        private readonly ILogger<OrderController> _logger;
 
-        public OrderController(ILogger<OrderController> logger, IOrderService orderService)
+        public OrderController(IOrderService orderService)
         {
-            _logger = logger;
             _orderService = orderService;
         }
 

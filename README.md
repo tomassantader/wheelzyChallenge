@@ -35,48 +35,7 @@
    3. Execute the script (F5 or Execute) and wait until it finishes.
    4. Then, open `02_data_insertion.sql` and execute it to populate the database with sample data.
 
-   **Using sqlcmd:**
-   ```bash
-   sqlcmd -S <SERVER_NAME> -E -i SQL/01_schema_definition.sql
-   ```
-   Or with SQL authentication:
-   ```bash
-   sqlcmd -S <SERVER_NAME> -U <USERNAME> -P <PASSWORD> -i SQL/01_schema_definition.sql
-   ```
-   Then run:
-   ```bash
-   sqlcmd -S <SERVER_NAME> -E -i SQL/02_data_insertion.sql
-   ```
-   Or with SQL auth:
-   ```bash
-   sqlcmd -S <SERVER_NAME> -U <USERNAME> -P <PASSWORD> -i SQL/02_data_insertion.sql
-   ```
-
-6. **Verify the database setup (optional):**
-   You can run simple queries to check that the tables have been created and data inserted:
-   ```sql
-   USE wheelzyDb;
-   SELECT TOP 10 * FROM Buyers;
-   SELECT COUNT(*) AS CarsCount FROM Cars;
-   SELECT TOP 10 * FROM Orders;
-   ```
-
-7. **Optional: Run sample queries to verify relationships:**
-   ```sql
-   -- Quotes per buyer
-   SELECT b.FULLNAME, COUNT(q.Id) AS QuotesCount
-   FROM Buyers b
-   LEFT JOIN Quotes q ON q.ID_BUYER = b.Id
-   GROUP BY b.FULLNAME;
-
-   -- Active cars by ZIP
-   SELECT z.AREA_NAME, COUNT(c.Id) AS ActiveCars
-   FROM ZipCodes z
-   JOIN Cars c ON c.ID_ZIP_CODE = z.ZIP_CODE
-   WHERE c.IS_ACTIVE = 1
-   GROUP BY z.AREA_NAME;
-   ```
-8. **Building the Project**
+6. **Building the Project**
 
    **Restore NuGet Packages (important before building):**
    - When opening the solution, Visual Studio usually restores packages automatically.
@@ -96,5 +55,3 @@
    ```
 
    **Note:** Make sure the `WheelzyDB` database is created and populated before running the project.
-
-

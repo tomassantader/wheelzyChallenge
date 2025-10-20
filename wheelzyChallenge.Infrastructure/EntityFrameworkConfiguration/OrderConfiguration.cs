@@ -39,11 +39,6 @@ namespace wheelzyChallenge.Infrastructure.EntityFrameworkConfiguration
                    .HasForeignKey(x => x.QuoteId)
                    .HasConstraintName("FK_Orders_Quotes");
 
-            //builder.HasOne(x => x.Status)
-            //        .WithMany(x => x.Orders)
-            //        .HasForeignKey(x => x.StatusId)
-            //        .HasConstraintName("FK_Orders_States");
-
             builder.HasMany(x => x.OrderDetails)
                     .WithOne(od => od.Order)
                     .HasForeignKey(od => od.OrderId)

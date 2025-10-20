@@ -11,11 +11,9 @@ namespace wheelzyChallenge.Api.Controllers
     public class FilesController : ControllerBase
     {
         private readonly IFileService _fileService;
-        private readonly ILogger<FilesController> _logger;
 
-        public FilesController(ILogger<FilesController> logger, IFileService fileService)
+        public FilesController(IFileService fileService)
         {
-            _logger = logger;
             _fileService = fileService;
         }
 

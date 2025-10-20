@@ -35,3 +35,26 @@ public void UpdateCustomersBalanceByInvoices(List<Invoice> invoices)
 
     dbContext.SaveChanges();
 }
+```
+
+If the number of invoices is very large, this approach could consume too much memory and take too long to commit all the changes.  
+In that case, I would process the data in smaller batches or delegate the operation to the database, for example using a stored procedure or perform the updates directly in SQL.
+
+```sql
+CREATE PROCEDURE UpdateCustomersBalanceByInvoices
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE c
+    SET c.Balance = c.Balance - totals.TotalInvoice
+    FROM Customers c
+    INNER JOIN (
+        SELECT CustomerId, SUM(Total) AS TotalInvoice
+        FROM Invoices
+        WHERE CustomerId IS NOT NULL
+        GROUP BY CustomerId
+    ) AS totals
+    ON c.Id = totals.CustomerId;
+END;
+```
