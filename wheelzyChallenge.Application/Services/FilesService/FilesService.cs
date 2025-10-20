@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using wheelzyChallenge.Infrastructure.FileHandler;
+using wheelzyChallenge.Infrastructure.FilesHandler;
 using wheelzyChallenge.Infrastructure.Repositories;
 
 namespace wheelzyChallenge.Application.Services.FilesService

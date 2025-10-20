@@ -15,12 +15,12 @@ namespace wheelzyChallenge.Infrastructure.Repositories
         {
         }
 
-        public List<Quote> GetCurrentQuoteByZipCode(int zipCode)
+        public List<Quote> GetCurrentQuotes()
         {
             try
             {
                 var quotes = DbContext.Set<Quote>()
-                    .Where(x => x.IsCurrent && x.ZipCodeId == zipCode)
+                    .Where(x => x.IsCurrent)
                     .Select(x => new Quote
                     {
                         Id = x.Id,
@@ -56,7 +56,7 @@ namespace wheelzyChallenge.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Error al obtener cotizaciones del código postal {zipCode}: {ex.Message}");
+                
                 return new List<Quote>();
             }
         }

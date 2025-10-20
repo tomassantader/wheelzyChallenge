@@ -16,11 +16,11 @@ namespace wheelzyChallenge.Application.Services.QuoteService
         {
             _quoteRepository = quoteRepository;
         }
-        public List<QuoteInfoDto> GetCurrentQuoteByZipCode(int zipCode)
+        public List<QuoteInfoDto> GetCurrentQuotes()
         {
             try
             {
-                List<Quote> quotes = _quoteRepository.GetCurrentQuoteByZipCode(zipCode);
+                List<Quote> quotes = _quoteRepository.GetCurrentQuotes();
                 List<QuoteInfoDto> quoteInfoDtos = new List<QuoteInfoDto>();
                 quotes.ForEach(quote =>
                 {

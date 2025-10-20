@@ -2,7 +2,7 @@ using Moq;
 using System.IO;
 using Xunit;
 using wheelzyChallenge.Application.Services.FilesService;
-using wheelzyChallenge.Infrastructure.FileHandler;
+using wheelzyChallenge.Infrastructure.FilesHandler;
 
 public class FilesServiceTests
 {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace wheelzyChallenge.Infrastructure.FileHandler
+namespace wheelzyChallenge.Infrastructure.FilesHandler
 {
     public interface IFileHandler
     {

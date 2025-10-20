@@ -20,10 +20,10 @@ namespace wheelzyChallenge.Api.Controllers
         }
 
         [HttpGet("GetQuotes")]
-        public List<QuoteInfoDto> Get(int zipCode)
+        public List<QuoteInfoDto> GetCurrentQuotes()
         {
 
-            List<QuoteInfoDto> result = _quoteService.GetCurrentQuoteByZipCode(zipCode);
+            List<QuoteInfoDto> result = _quoteService.GetCurrentQuotes();
             return result;
         }
     }

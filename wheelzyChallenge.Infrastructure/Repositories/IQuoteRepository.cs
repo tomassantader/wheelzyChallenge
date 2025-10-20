@@ -10,6 +10,6 @@ namespace wheelzyChallenge.Infrastructure.Repositories
 {
     public interface IQuoteRepository : IRepository<Quote>
     {
-        List<Quote> GetCurrentQuoteByZipCode(int zipCode);
+       List<Quote> GetCurrentQuotes();
     }
 }

@@ -10,6 +10,6 @@ namespace wheelzyChallenge.Application.Services.QuoteService
 {
     public interface IQuoteService
     {
-        List<QuoteInfoDto> GetCurrentQuoteByZipCode(int zipCode);
+        List<QuoteInfoDto> GetCurrentQuotes();
     }
 }

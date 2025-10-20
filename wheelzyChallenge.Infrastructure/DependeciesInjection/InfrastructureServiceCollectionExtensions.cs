@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using wheelzyChallenge.Infrastructure.FilesHandler;
 using wheelzyChallenge.Infrastructure.Repositories;
 
 namespace wheelzyChallenge.Infrastructure.DependeciesInjection
@@ -15,6 +16,7 @@ namespace wheelzyChallenge.Infrastructure.DependeciesInjection
         {
             iServiceCollection.AddScoped<IQuoteRepository, QuoteRepository>();
             iServiceCollection.AddScoped<IOrderRepository, OrderRepository>();
+            iServiceCollection.AddScoped<IFileHandler, FileHandler>();
             return iServiceCollection;
         }
     }
